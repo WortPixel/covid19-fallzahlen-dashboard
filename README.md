@@ -1,5 +1,5 @@
 # COVID19-Fallzahlen
-Dieses Projekt ist eine [Streamlit-App](https://www.streamlit.io) zur einfachen Visualisierung der Historie von COVID19-Fallzahlen deutscher Land- und Stadtkreise.
+Dieses Projekt ist eine [Streamlit-App](https://www.streamlit.io) zur einfachen Visualisierung der Historie von COVID19-Fallzahlen deutscher Land- und Stadtkreise. Die App ist **keine** Informationsquelle, um irgendwelche (z.B. gesundheitliche) Entscheidungen zu treffen, sondern dient lediglich der privaten Erstellung regionaler Fallzahlhistorien, oder als Basis zur Erstellung eigener Skripte. Zur Entscheidungshilfe im Umgang mit der aktuellen Situation sollten Experteneinschätzungen lokaler Gesundheitsinstitutionen genutzt werden (z.B. aus der [Übersicht vom Robert-Koch-Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html)).
 
 Es werden Fallzahlen vom Robert-Koch-Institut abgerufen und für einen ausgewählten Kreis dargestellt. Zudem werden aktuell zwei Kennzahlen mit geplottet:
 1. Der arithmetische Mittelwert eines selbstgewählten Zeitraums, z.B. einer Woche.
@@ -31,7 +31,7 @@ Der Author hat keinen medizinischen Hintergrund und kennt sich nicht mit Virolog
 - Einwohnerzahlen Berliner Bezirke: [Wikpedia](https://de.wikipedia.org/wiki/Berlin#Stadtgliederung) basierend auf Daten des "**Amt für Statistik** Berlin-Brandenburg" aus dem Bericht "*Statistischer Bericht - A I 5 – hj 2 / 19*", abgerufen am 15.10.2020, liegen unter `data/Berlin.csv` vor.
 
 # 🇬🇧 English
-This project is a [streamlit app](https://www.streamlit.io) to visualize historical COVID19 case numbers for German regions. Case numbers are taken from the [Robert-Koch-Institut](), for more information check out the data sources section down below.
+This project is a [streamlit app](https://www.streamlit.io) to visualize historical COVID19 case numbers for German regions. Case numbers are taken from the [Robert-Koch-Institut](), for more information check out the data sources section down below. This app is **not** suited for basing any kind of decision on it, please refer to professionally prepared data sources by your local health institute.
 
 It includes average values for self-selected periods (e.g. weekly averages) or optional cases per 100k citizens of a city per (7-day) week. The latter is currently used in Germany to decide if more strict measures have to be taken. Therefore a warning is issued when more than 35 cases per 100k per week are reached, and if 50 is crossed, new measures have to be imposed. These border values can also be enabled in the app.
 
