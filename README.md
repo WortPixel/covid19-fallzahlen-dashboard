@@ -1,4 +1,4 @@
-# COVID19-Historie
+# COVID19-Fallzahlen
 Dieses Projekt ist eine Streamlit-App zur einfachen Visualisierung der Historie von COVID19-Fallzahlen deutscher Land- und Stadtkreise.
 
 Es werden Fallzahlen vom Robert-Koch-Institut abgerufen und für einen ausgewählten Kreis dargestellt. Zudem werden aktuell zwei Kennzahlen mit geplottet:
@@ -16,7 +16,7 @@ Für die Nutzung wird Python in Verbindung mit verschiedenen Bibliotheken (insbe
 
 Die Periodizität des Zeitraumes für die Mittelwerterstellung, sowie die Einwohnerzahl (bei Auswahl der Option *Fallzahlen pro 100t Einwohner und Woche berechnen?*) kann in der Seitenleiste (links) angepasst werden.
 
-Für die meisten Kreise, für die vom Robert-Koch-Institut Fallzahlen vorliegen, sind auch Einwohnerzahlen hinterlegt. Ist dies nicht der Fall wird eine Einwohnerzahl von 100.000 angenommen, welche in den Optionen der Seitenleiste (links) angepasst werden kann.
+Für die meisten Kreise, für die vom Robert-Koch-Institut Fallzahlen vorliegen, sind auch Einwohnerzahlen hinterlegt. Ist dies nicht der Fall wird eine Einwohnerzahl von 100 000 angenommen, welche in den Optionen der Seitenleiste (links) angepasst werden kann.
 
 ## Disclaimer
 

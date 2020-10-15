@@ -9,7 +9,7 @@ from tools import *
 
 
 # --- Streamlit Seite zusammenstellen ---
-st.title('COVID19 lokale Datenhistorie')
+st.title('COVID19 lokale Fallzahlen')
 # Region auswählen:
 # Mögliche Landkreise abrufen, um sie als Auswahl bereitzustellen
 landkreise = landkreise_abrufen()
