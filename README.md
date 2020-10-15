@@ -20,6 +20,10 @@ Die Periodizität des Zeitraumes für die Mittelwerterstellung, sowie die Einwoh
 
 Für die meisten Kreise, für die vom Robert-Koch-Institut Fallzahlen vorliegen, sind auch Einwohnerzahlen hinterlegt. Ist dies nicht der Fall wird eine Einwohnerzahl von 100 000 angenommen, welche in den Optionen der Seitenleiste (links) angepasst werden kann.
 
+Tipp:
+Der aktuell eingetragene Kreis muss nicht erst gelöscht werden, es kann direkt z.B. "Hannover" eingetragen,
+und anschließend "Region Hannover" in den Vorschlägen ausgewählt werden.
+
 ![Screenshot der Streamlit App](img/screenshot01.png)
 
 ## Disclaimer
