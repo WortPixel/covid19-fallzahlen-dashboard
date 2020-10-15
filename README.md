@@ -18,6 +18,8 @@ Die Periodizität des Zeitraumes für die Mittelwerterstellung, sowie die Einwoh
 
 Für die meisten Kreise, für die vom Robert-Koch-Institut Fallzahlen vorliegen, sind auch Einwohnerzahlen hinterlegt. Ist dies nicht der Fall wird eine Einwohnerzahl von 100 000 angenommen, welche in den Optionen der Seitenleiste (links) angepasst werden kann.
 
+![Screenshot der Streamlit App](img/screenshot01.png)
+
 ## Disclaimer
 
 Der Author hat keinen medizinischen Hintergrund und kennt sich nicht mit Virologie aus. Dieses Projekt dient lediglich der reinen Visualisierung gemeldeter Fallzahlen und etwaiger Kennzahlen aus Eigeninteresse. Eine öffentliche Bereitstellung wurde gewählt, um anderen mit gleichem Interesse potenzielle Arbeit bei der Nutzung des APIs des Robert-Koch-Institutes zu ersparen, oder einen einfachen Einstieg für eigene Visualisierungen zu geben.
