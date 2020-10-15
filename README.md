@@ -1,3 +1,5 @@
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/wortpixel/covid19-fallzahlen-dashboard/main/app.py)
+
 # COVID19-Fallzahlen
 Dieses Projekt ist eine [Streamlit-App](https://www.streamlit.io) zur einfachen Visualisierung der Historie von COVID19-Fallzahlen deutscher Land- und Stadtkreise. Die App ist **keine** Informationsquelle, um irgendwelche (z.B. gesundheitliche) Entscheidungen zu treffen, sondern dient lediglich der privaten Erstellung regionaler Fallzahlhistorien, oder als Basis zur Erstellung eigener Skripte. Zur Entscheidungshilfe im Umgang mit der aktuellen Situation sollten Experteneinschätzungen lokaler Gesundheitsinstitutionen genutzt werden (z.B. aus der [Übersicht vom Robert-Koch-Institut](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html)).
 
