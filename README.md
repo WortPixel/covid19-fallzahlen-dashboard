@@ -1,5 +1,5 @@
 # COVID19-Fallzahlen
-Dieses Projekt ist eine Streamlit-App zur einfachen Visualisierung der Historie von COVID19-Fallzahlen deutscher Land- und Stadtkreise.
+Dieses Projekt ist eine [Streamlit-App](https://www.streamlit.io) zur einfachen Visualisierung der Historie von COVID19-Fallzahlen deutscher Land- und Stadtkreise.
 
 Es werden Fallzahlen vom Robert-Koch-Institut abgerufen und für einen ausgewählten Kreis dargestellt. Zudem werden aktuell zwei Kennzahlen mit geplottet:
 1. Der arithmetische Mittelwert eines selbstgewählten Zeitraums, z.B. einer Woche.
@@ -29,3 +29,29 @@ Der Author hat keinen medizinischen Hintergrund und kennt sich nicht mit Virolog
 - Fallzahlen: [Robert Koch-Institut (RKI)](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0/data), dl-de/by-2-0, werden live abgerufen.
 - Einwohnerzahlen: "**Statistisches Bundesamt (Destatis), 2020**" - "*Daten aus dem Gemeindeverzeichnis Kreisfreie Städte und Landkreise nach Fläche, Bevölkerung und Bevölkerungsdichte*", [Kreisfreie Städte und Landkreise am 31.12.2019](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/04-kreise.html), liegen unter `data/04-kreise.xlsx` vor.
 - Einwohnerzahlen Berliner Bezirke: [Wikpedia](https://de.wikipedia.org/wiki/Berlin#Stadtgliederung) basierend auf Daten des "**Amt für Statistik** Berlin-Brandenburg" aus dem Bericht "*Statistischer Bericht - A I 5 – hj 2 / 19*", abgerufen am 15.10.2020, liegen unter `data/Berlin.csv` vor.
+
+# 🇬🇧 English
+This project is a [streamlit app](https://www.streamlit.io) to visualize historical COVID19 case numbers for German regions. Case numbers are taken from the [Robert-Koch-Institut](), for more information check out the data sources section down below.
+
+It includes average values for self-selected periods (e.g. weekly averages) or optional cases per 100k citizens of a city per (7-day) week. The latter is currently used in Germany to decide if more strict measures have to be taken. Therefore a warning is issued when more than 35 cases per 100k per week are reached, and if 50 is crossed, new measures have to be imposed. These border values can also be enabled in the app.
+
+Note: The app is mainly focused on a German audience, hence the code is documented in German as well.
+
+## Usage
+This app is python based and requires certain libs (see `requirements.txt`).
+
+1. Install requirements: `pip install -r requirements.txt`
+2. Start streamlit app: `streamlit run app.py`
+3. Open up the app in your browser by navigating to `localhost:8501` (for default settings).
+4. To quit the app, enter `ctrl + c` in your terminal.
+
+The periodicity can be selected in the sidebar of the app. There you'll also find settings e.g. for the number of citizens of a selected city. This value will be pre-filled, except the selected region doesn't match any region in the data files used for the number of citizens. For that case 100k citizens is the default value.
+
+## Disclaimer
+The author has no medical background nor is he a virologist. This project is purely made for creating a simple visualization of reported case numbers per region out of personal interest. It is shared publically to potentially save someone else a bit of time, if something similar should be created, e.g. profitting from sample code using the data API from the Robert-Koch-Institut.
+
+## Data Sources
+
+- Case Numbers: [Robert Koch-Institut (RKI)](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0/data), dl-de/by-2-0, accessed live via the linked API.
+- Number of citizens: "**Statistisches Bundesamt (Destatis), 2020**" - "*Daten aus dem Gemeindeverzeichnis Kreisfreie Städte und Landkreise nach Fläche, Bevölkerung und Bevölkerungsdichte*", [Kreisfreie Städte und Landkreise am 31.12.2019](https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/04-kreise.html), stored in `data/04-kreise.xlsx`.
+- Number of citizens for regions in Berlin: [Wikpedia](https://de.wikipedia.org/wiki/Berlin#Stadtgliederung) based on data from the report "*Statistischer Bericht - A I 5 – hj 2 / 19*" by "**Amt für Statistik** Berlin-Brandenburg", accessed on 15.10.2020, stored in `data/Berlin.csv`.
