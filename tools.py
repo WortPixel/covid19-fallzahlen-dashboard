@@ -1,4 +1,6 @@
+from matplotlib import dates as mdates
 from matplotlib import pyplot as plt
+from matplotlib import rcParams
 import numpy as np
 import pandas as pd
 import requests as r
@@ -165,7 +167,9 @@ def visualisieren(fallzahlen: pd.core.series.Series, bezirk: str, stand: str,
     # Plottingbereich leeren
     plt.close('all')
     # und Seitenverhältnis einstellen
-    plt.figure(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(10, 5))
+    # Zeitzone festlegen
+    rcParams['timezone'] = 'CEST'
     
     # Fallzahlen als Stufenplot mit Schattierung unter den Stufen darstellen
     plt.fill_between(fallzahlen.index, fallzahlen.values, step="pre", alpha=0.4)
@@ -182,15 +186,28 @@ def visualisieren(fallzahlen: pd.core.series.Series, bezirk: str, stand: str,
         plt.hlines([35], fallzahlen.index.min(), fallzahlen.index.max(), "orange",
             label="Warnwert")
     
+    # X-Axen Markierung auf Monate mit Teilstrichen bei Wochen setzen
+    months = mdates.MonthLocator()  # every month
+    months_fmt = mdates.DateFormatter('%b\'%y')
+    weeks = mdates.WeekdayLocator() # every week
+    
+    ax.xaxis.set_major_locator(months)
+    ax.xaxis.set_major_formatter(months_fmt)
+    ax.xaxis.set_minor_locator(weeks)
+
+    datemin = np.datetime64(fallzahlen.index.min(), 'm')
+    datemax = np.datetime64(fallzahlen.index.max(), 'm') + np.timedelta64(1, 'm')
+    ax.set_xlim(datemin, datemax)
+
     # Achsen und Plot beschriften, sowie Datumslegende lesbar ausrichten
-    plt.xticks(rotation=45)
-    plt.xlabel('Meldedatum')
-    plt.ylabel('gemeldete Fallzahlen')
+    fig.autofmt_xdate(rotation=45)
+    ax.set_xlabel('Meldedatum')
+    ax.set_ylabel('gemeldete Fallzahlen')
     plt.title(bezirk+", Stand: "+stand)
     
     # Legende mittig anzeigen, falls Kennzahlen vorhanden sind
     if (kennzahlen != None):
         plt.legend(loc='upper center')
     # und zur Orientierung ein Raster (im Plot) einfügen
-    plt.grid()
+    ax.grid(True)
     return plt
