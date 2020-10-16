@@ -9,6 +9,8 @@ Es werden Fallzahlen vom Robert-Koch-Institut abgerufen und für einen ausgewäh
 
 ## Nutzung
 
+Die App kann direkt über Share Streamlit gestartet werden. Dazu genügt ein Klick auf den "Open in Streamlit"-Button oberhalb des README Textes.
+
 Für die Nutzung wird Python in Verbindung mit verschiedenen Bibliotheken (insbesondere der `streamlit` Bibliothek benötigt). Weitere Anforderungen sind der `requirements.txt` zu entnehmen.
 
 1. Benötigte Bibliothekten installieren: `pip install -r requirements.txt`
@@ -44,6 +46,8 @@ It includes average values for self-selected periods (e.g. weekly averages) or o
 Note: The app is mainly focused on a German audience, hence the code is documented in German as well.
 
 ## Usage
+You can directly start this app in Share Streamlit via a press on the "Open in Streamlit" button at the beginning of this docu.
+
 This app is python based and requires certain libs (see `requirements.txt`).
 
 1. Install requirements: `pip install -r requirements.txt`
