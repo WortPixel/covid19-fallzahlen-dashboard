@@ -10,6 +10,23 @@ from tools import *
 
 # --- Streamlit Seite zusammenstellen ---
 st.title('COVID19 lokale Fallzahlen')
+
+# Allgemeine Nutzungshinweise
+hinweis = st.empty()
+if st.sidebar.checkbox("Allgemeine Hinweise zeigen?", True):
+    hinweis.markdown('''
+    Diese Seite stellt den Verlauf gemeldeter COVID19 Fälle dar.
+    Die Meldungen werden von der Datenschnittstelle des [Robert-Koch-Instituts](https://www.rki.de/) abgerufen und tageweise gesammelt dargestellt.
+
+    Um einen Land- oder Stadtkreis auszuwählen kann im folgenden Eingabefeld ein Kreis ausgewählt werden.
+    Es reicht dazu im Eingabefeld mit der Eingabe eines Kreises zu beginnen, bswp. "Dortmund".
+    Anschließend kann ein Vorschlag ("SK Dortmund") ausgewählt werden, worauf die passenden Daten visualisiert werden.
+
+    Es ist nicht notwendig vorherige Eingaben zu löschen, es kann jeweils direkt eine neue Eingabe erfolgen.
+
+    Zusätzliche Einstellungen sind links in der Seitenleiste verfügbar.
+    ''')
+
 # Region auswählen:
 # Mögliche Landkreise abrufen, um sie als Auswahl bereitzustellen
 landkreise = landkreise_abrufen()
@@ -18,7 +35,7 @@ if (landkreise is None):
 # Dortmund raussuchen, um es als Startwert zu setzen.
 dortmund = np.where(landkreise['attributes.Landkreis']=='SK Dortmund')[0][0]
 dortmund = int(dortmund)
-# Landkreise zur Wahlstellen
+# Landkreise zur Wahl stellen
 nutzer_region = st.selectbox("Land- bzw. Stadtkreis wählen:", landkreise,
     index=dortmund)
 
@@ -43,11 +60,11 @@ fallzahlen = fallzahlen_extrahieren(daten)
 kennzahlen = {}
 # Auswahl der Tage, die zur Mittelwertbildung verwendet werden sollen.
 # Bei 7 Tagen werden bswp. der aktuelle Tag, sowie die 6 vorherigen genutzt.
-periode = st.sidebar.number_input("Anzahl Tage für eine Periode:", min_value=2,
+periode = st.sidebar.number_input("Anzahl Tage für eine Periode zur Mittelwertsbestimmung:", min_value=2,
     max_value=365, value=7)
 
 # Einwohnerzahlen laden und visualisieren, falls gewünscht:
-woechentliche_faelle = 'Fallzahlen pro 100t Einwohner und Woche berechnen?'
+woechentliche_faelle = 'Fallzahlen pro 100t Einwohner und 7-Tage-Woche berechnen?'
 schranken = False
 if st.sidebar.checkbox(woechentliche_faelle, True):
     try:
@@ -65,7 +82,7 @@ if st.sidebar.checkbox(woechentliche_faelle, True):
     # Anzahl Fälle pro Woche und 100 000 Einwohner berechnen, da dieser Wert
     # aktuell von Ländern zur Bewertung der Lage genutzt wird.
     rel_woechentliche_faelle = fallzahlen.rolling(7).sum() / (einwohner / 1e5)
-    kennzahlen["pro Woche & 100t Einwohner"] = rel_woechentliche_faelle
+    kennzahlen["pro 7-Tage-Woche & 100t Einwohner"] = rel_woechentliche_faelle
 
     # Abfrage, ob aktuelle Grenzwerte eingezeichnet werden sollen
     grenzwert_text = 'Wöchentliche Grenzwerte einzeichnen?'
