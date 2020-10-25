@@ -13,7 +13,8 @@ st.title('COVID19 lokale Fallzahlen')
 
 # Allgemeine Nutzungshinweise
 hinweis = st.empty()
-if st.sidebar.checkbox("Allgemeine Hinweise zeigen?", True):
+hinweise_anzeigen = st.sidebar.checkbox("Allgemeine Hinweise zeigen?", True)
+if hinweise_anzeigen:
     hinweis.markdown('''
     Diese Seite stellt den Verlauf gemeldeter COVID19 Fälle dar.
     Die Meldungen werden von der Datenschnittstelle des [Robert-Koch-Instituts](https://www.rki.de/) abgerufen und tageweise gesammelt dargestellt.
@@ -100,6 +101,13 @@ fig = visualisieren(fallzahlen, nutzer_region, daten_stand, schranken,
     kennzahlen)
 # und in der Web-App darstellen
 st.pyplot(fig)
+
+# Inzidenzwert benennen und den letzten anzeigen.
+st.header('Inzidenzwert des vorherigen Tages {:.0f}\*'.format(
+    kennzahlen["pro 7-Tage-Woche & 100t Einwohner"][-1]))
+if hinweise_anzeigen:
+    st.write('Aktuell werden die Fallzahlen der letzten 7 Tage normiert auf 100.000 Einwohner oft als Inzidenzwert bezeichnet. Dieser Wert wird als einheitliche Grenze genutzt, um etwaige Gegenmaßnahmen beim Überschreiten einer Grenze einzuleiten. Bisher wurden als Grenzwerte 35 und 50 verwendet. Diese können links über das seitliche Menü auch angezeigt werden.')
+st.write('\* Der angezeigte Wert ist gerundet.')
 
 # Auflistung der Fallzahlen des letzten Zeitfensters darstellen
 st.header('Fallzahlen der letzten {} Tage:'.format(periode))
